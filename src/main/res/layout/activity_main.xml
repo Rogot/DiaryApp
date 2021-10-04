@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainColor"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="serif"
+        android:text="@string/logo_menu"
+        android:textAlignment="center"
+        android:textColor="@color/secColor"
+        android:textSize="38sp" />
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_below="@id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/secColor" />
+
+    <Button
+        android:id="@+id/openDir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/secColor"
+        android:text="@string/button_text_openDir"
+        android:textColor="@color/mainColor"
+        android:textSize="25sp"
+        android:onClick="openDiary"/>
+
+    <Button
+        android:id="@+id/fillDir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/openDir"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/secColor"
+        android:text="@string/button_text_fillDir"
+        android:textColor="@color/mainColor"
+        android:textSize="25sp"
+        android:onClick="openFillDiary" />
+
+    <Button
+        android:id="@+id/SettingsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fillDir"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/secColor"
+        android:text="@string/button_text_settings"
+        android:textColor="@color/mainColor"
+        android:textSize="25sp"/>
+
+
+
+</RelativeLayout>
+

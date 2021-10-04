@@ -1,0 +1,108 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainColor"
+    tools:context=".FillActivity">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="serif"
+        android:text="@string/logo_fillDir"
+        android:textAlignment="center"
+        android:textColor="@color/secColor"
+        android:textSize="38sp" />
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@id/logo"
+        android:background="@color/secColor" />
+
+    <TextView
+        android:id="@+id/systolicText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_systolic"
+        android:textColor="@color/secColor"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/systolicEdit"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/systolicText"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/extraColor"
+        android:backgroundTint="@color/secColor"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/diastolicText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/systolicEdit"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_diastolic"
+        android:textColor="@color/secColor"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/diastolicEdit"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/diastolicText"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/extraColor"
+        android:backgroundTint="@color/secColor"
+        android:inputType="number"/>
+    <TextView
+        android:id="@+id/resText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diastolicEdit"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_res"
+        android:textColor="@color/secColor"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/resTest_2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/resText"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/extraColor"
+        android:backgroundTint="@color/secColor"
+        android:textColor="@color/black"
+        android:textSize="19sp"/>
+    
+    <Button
+        android:id="@+id/writeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/resTest_2"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="100dp"
+        android:backgroundTint="@color/secColor"
+        android:text="@string/button_text_write"
+        android:textColor="@color/mainColor"
+        android:textSize="25sp"
+        android:onClick="writeData"/>
+
+
+
+</RelativeLayout>

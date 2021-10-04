@@ -29,11 +29,13 @@ public class MainActivity extends AppCompatActivity {
         fillDir_button = (Button) findViewById(R.id.fillDir);
     }
 
+    //Open Diary
     public void openDiary(View view) {
         Intent diaryIntent = new Intent(MainActivity.this, OpenDiaryActivity.class);
         startActivity(diaryIntent);
     }
 
+    //Open Activity for fill data about blood pressure
     public void openFillDiary(View view) {
         Intent fillIntent = new Intent(MainActivity.this, FillActivity.class);
         startActivity(fillIntent);

@@ -6,7 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.analizapp.R;
 import com.example.analizapp.model.BloodPress;
@@ -15,37 +20,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-///*/*/*/////***//*//*/*/*/*/*/**
 public class BloodPressAdapter extends ArrayAdapter<BloodPress> {
 
-    private int resourceLayout;
     private Context mContext;
+    private List<BloodPress> bloodPressList = new ArrayList<>();
 
-    public BloodPressAdapter(Context context, int resource, List<BloodPress> items){
-        super(context, resource, items);
-        this.resourceLayout = resource;
-        this.mContext = context;
+    public BloodPressAdapter(@NonNull Context context, ArrayList<BloodPress> list) {
+        super(context, 0, list);
+        mContext = context;
+        bloodPressList = list;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        View v = convertView;
-
-        if (v == null) {
-            LayoutInflater vi;
-            vi = LayoutInflater.from(mContext);
-            v = vi.inflate(resourceLayout, null);
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View listItem = convertView;
+        if(listItem == null){
+            listItem = LayoutInflater.from(mContext).inflate(R.layout.activity_list_blood_press,parent,false);
         }
 
-        BloodPress p = getItem(position);
+        BloodPress currentData = bloodPressList.get(position);
 
-        if (p != null)
-        {
-            ((TextView) v.findViewById(R.id.SYSValText)).setText(p.getSystolicValue());
-            ((TextView) v.findViewById(R.id.DIAValText)).setText(p.getDiastolicValue());
-            ((TextView) v.findViewById(R.id.PulsePressValText)).setText(p.getResValue());
-        }
-        return v;
+        TextView sys = (TextView) listItem.findViewById(R.id.SYSValText);
+        sys.setText(String.valueOf(currentData.getSystolicValue()));
+
+        TextView dia = (TextView) listItem.findViewById(R.id.DIAValText);
+        dia.setText(String.valueOf(currentData.getDiastolicValue()));
+
+        TextView plc = (TextView) listItem.findViewById(R.id.PulsePressValText);
+        plc.setText(String.valueOf(currentData.getResValue()));
+
+        return listItem;
     }
 }

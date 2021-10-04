@@ -19,6 +19,8 @@ public class OpenDiaryActivity extends Activity {
     private SharedPreferences pref;
 
     private ListView diary_list;
+    private BloodPressAdapter mAdapter;
+
     private BloodPress  bloodPress = new BloodPress(0,0);;
     private ArrayList<BloodPress> bloodPressArray = new ArrayList<BloodPress>();;
     private int size = 0;
@@ -32,16 +34,11 @@ public class OpenDiaryActivity extends Activity {
         pref = getSharedPreferences("DIARY", MODE_PRIVATE);
         size = pref.getInt("DataSize",0);
 
-        //filldata(bloodPressArray, pref, size);
-
-        bloodPressArray.add(new BloodPress(120,80));
-        bloodPressArray.add(new BloodPress(160,90));
-        bloodPressArray.add(new BloodPress(150,70));
-        bloodPressArray.add(new BloodPress(140,80));
+        filldata(bloodPressArray, pref, size);
 
         diary_list = (ListView) findViewById(R.id.diaryList);
-        BloodPressAdapter bloodAdapter = new BloodPressAdapter(this, R.layout.activity_list_blood_press, bloodPressArray);
-        diary_list.setAdapter(bloodAdapter);
+        mAdapter = new BloodPressAdapter(this, bloodPressArray);
+        diary_list.setAdapter(mAdapter);
 
     }
 
@@ -54,13 +51,12 @@ public class OpenDiaryActivity extends Activity {
 
     public void filldata(ArrayList<BloodPress> bloodPressArray, SharedPreferences pref, int arraySize)
     {
-        BloodPress item = new BloodPress(0,0, 0);
         for(int i = 0; i < arraySize; i++){
-            item.setSystolicValue( pref.getInt("SysVal" + arraySize, 0));
-            item.setDiastolicValue( pref.getInt("DisVal" + arraySize, 0));
-            item.setResValue( pref.getInt("ResVal" + arraySize, 0));
-
-            bloodPressArray.add(item);
+            bloodPressArray.add(new BloodPress(
+                    pref.getInt("SysVal" + Integer.toString(i), 0),
+                    pref.getInt("DisVal" + Integer.toString(i), 0),
+                    pref.getInt("ResVal" + Integer.toString(i), 0)
+            ));
         }
     }
 }

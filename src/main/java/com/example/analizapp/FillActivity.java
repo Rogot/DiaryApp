@@ -44,12 +44,12 @@ public class FillActivity extends Activity {
         pref = getSharedPreferences("DIARY", MODE_PRIVATE);
 
         size = pref.getInt("DataSize", 0);
-        size--;
         diastolic_edit.setText(String.valueOf(pref.getInt("DisVal" + size, 0)));
         systolic_edit.setText(String.valueOf(pref.getInt("SysVal" + size, 0)));
         res_edit.setText(String.valueOf(pref.getInt("ResVal" + size, 0)));
     }
 
+    //Function for button which let save data
     public void writeData(View view) {
         if (diastolic_edit.getText().toString().trim().equals("") || systolic_edit.getText().toString().trim().equals("")) {
             Toast.makeText(FillActivity.this, R.string.no_user_input, Toast.LENGTH_LONG).show();
@@ -70,15 +70,15 @@ public class FillActivity extends Activity {
         }
     }
 
+    //Data saving function in permanent memory
     private void saveData(BloodPress dataToSave, int arraySize) {
         SharedPreferences.Editor editor = pref.edit();
-        editor.putInt("SysVal" + arraySize, dataToSave.getSystolicValue());
-        editor.putInt("DisVal" + arraySize, dataToSave.getDiastolicValue());
-        editor.putInt("ResVal" + arraySize, dataToSave.getResValue());
+        editor.putInt("SysVal" + Integer.toString(arraySize), dataToSave.getSystolicValue());
+        editor.putInt("DisVal" + Integer.toString(arraySize), dataToSave.getDiastolicValue());
+        editor.putInt("ResVal" + Integer.toString(arraySize), dataToSave.getResValue());
         arraySize = arraySize + 1;
         editor.putInt("DataSize", arraySize);
         editor.apply();
-
     }
 
 }

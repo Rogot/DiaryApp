@@ -3,9 +3,8 @@ package com.example.analizapp;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import com.example.analizapp.model.BloodPress;
 import com.example.analizapp.model.BloodPressAdapter;
@@ -30,7 +29,6 @@ public class OpenDiaryActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.open_diary);
 
-
         pref = getSharedPreferences("DIARY", MODE_PRIVATE);
         size = pref.getInt("DataSize",0);
 
@@ -49,13 +47,19 @@ public class OpenDiaryActivity extends Activity {
         editor.apply();
     }
 
+    //Fill array for ListView using data from permanent memory
     public void filldata(ArrayList<BloodPress> bloodPressArray, SharedPreferences pref, int arraySize)
     {
         for(int i = 0; i < arraySize; i++){
             bloodPressArray.add(new BloodPress(
                     pref.getInt("SysVal" + Integer.toString(i), 0),
                     pref.getInt("DisVal" + Integer.toString(i), 0),
-                    pref.getInt("ResVal" + Integer.toString(i), 0)
+                    pref.getInt("ResVal" + Integer.toString(i), 0),
+                    pref.getInt("Day" + Integer.toString(i), 0),
+                    pref.getInt("Month" + Integer.toString(i), 0),
+                    pref.getInt("Year" + Integer.toString(i), 0),
+                    pref.getInt("Hour" + Integer.toString(i), 0),
+                    pref.getInt("Minute" + Integer.toString(i), 0)
             ));
         }
     }

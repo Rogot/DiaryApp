@@ -2,14 +2,12 @@ package com.example.analizapp.model;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.text.format.Time;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -49,6 +47,22 @@ public class BloodPressAdapter extends ArrayAdapter<BloodPress> {
 
         TextView plc = (TextView) listItem.findViewById(R.id.PulsePressValText);
         plc.setText(String.valueOf(currentData.getResValue()));
+
+        TextView day = (TextView) listItem.findViewById(R.id.DateDay);
+        day.setText("Д: " + String.valueOf(currentData.getDayValue()));
+
+        TextView month = (TextView) listItem.findViewById(R.id.DateMonth);
+        month.setText("M: " + String.valueOf(currentData.getMonthValue()));
+
+        TextView year = (TextView) listItem.findViewById(R.id.DateYear);
+        year.setText("Г: " + String.valueOf(currentData.getYearValue()));
+
+        TextView hour = (TextView) listItem.findViewById(R.id.TimeHours);
+        hour.setText(String.valueOf(currentData.getHourValue()));
+
+        TextView minute = (TextView) listItem.findViewById(R.id.TimeMinutes);
+        minute.setText(String.valueOf(currentData.getMinuteValue()));
+
 
         return listItem;
     }

@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.text.format.Time;
+
 import com.example.analizapp.model.BloodPress;
 
 import androidx.annotation.Nullable;
@@ -27,6 +29,7 @@ public class FillActivity extends Activity {
 
     private ArrayList<BloodPress> bloodPressArray;
     private int size = 0;
+    Time today = new Time(Time.getCurrentTimezone());
 
 
     @Override
@@ -47,6 +50,8 @@ public class FillActivity extends Activity {
         diastolic_edit.setText(String.valueOf(pref.getInt("DisVal" + size, 0)));
         systolic_edit.setText(String.valueOf(pref.getInt("SysVal" + size, 0)));
         res_edit.setText(String.valueOf(pref.getInt("ResVal" + size, 0)));
+
+        today.setToNow();
     }
 
     //Function for button which let save data
@@ -61,6 +66,13 @@ public class FillActivity extends Activity {
             bloodPress.setSystolicValue(Sys);
             bloodPress.setDiastolicValue(Dias);
             bloodPress.setResValue(Sys - Dias);
+
+            bloodPress.setDayValue(today.monthDay);
+            bloodPress.setMonthValue(today.month + 1);
+            bloodPress.setYearValue(today.year);
+            bloodPress.setHourValue(today.hour);
+            bloodPress.setMinuteValue(today.minute);
+
             res_edit.setText(String.valueOf(Sys - Dias));
 
             saveData(bloodPress, size);
@@ -78,6 +90,11 @@ public class FillActivity extends Activity {
         editor.putInt("ResVal" + Integer.toString(arraySize), dataToSave.getResValue());
         arraySize = arraySize + 1;
         editor.putInt("DataSize", arraySize);
+        editor.putInt("Day" + Integer.toString(arraySize), dataToSave.getDayValue());
+        editor.putInt("Month" + Integer.toString(arraySize), dataToSave.getMonthValue());
+        editor.putInt("Year" + Integer.toString(arraySize), dataToSave.getYearValue());
+        editor.putInt("Hour" + Integer.toString(arraySize), dataToSave.getHourValue());
+        editor.putInt("Minute" + Integer.toString(arraySize), dataToSave.getMinuteValue());
         editor.apply();
     }
 

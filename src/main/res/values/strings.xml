@@ -16,6 +16,7 @@
     <string name="SYSText">SYS</string>
     <string name="DIAText">DIA</string>
     <string name="PulsePressText">PLS</string>
-
+    <string name="DateText">Дата</string>
+    <string name="TimeText">Время</string>
 
 </resources>

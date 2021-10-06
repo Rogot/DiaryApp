@@ -45,6 +45,7 @@ public class OpenDiaryActivity extends Activity {
         SharedPreferences.Editor editor = pref.edit();
         editor.clear();
         editor.apply();
+        setContentView(R.layout.open_diary);
     }
 
     //Fill array for ListView using data from permanent memory

@@ -6,6 +6,7 @@ import android.text.format.Time;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,20 +49,18 @@ public class BloodPressAdapter extends ArrayAdapter<BloodPress> {
         TextView plc = (TextView) listItem.findViewById(R.id.PulsePressValText);
         plc.setText(String.valueOf(currentData.getResValue()));
 
-        TextView day = (TextView) listItem.findViewById(R.id.DateDay);
-        day.setText("Д: " + String.valueOf(currentData.getDayValue()));
+        TextView date = (TextView) listItem.findViewById(R.id.DateValText);
+        date.setText(String.valueOf(currentData.getDayValue()) + "-" +
+                String.valueOf(currentData.getMonthValue()) + "-" +
+                String.valueOf(currentData.getYearValue()));
 
-        TextView month = (TextView) listItem.findViewById(R.id.DateMonth);
-        month.setText("M: " + String.valueOf(currentData.getMonthValue()));
+        TextView time = (TextView) listItem.findViewById(R.id.TimeValText);
+        String minute = String.valueOf(currentData.getMinuteValue());
+        if (Integer.valueOf(minute) < 10)
+            minute = "0" + String.valueOf(currentData.getMinuteValue());
+        time.setText(String.valueOf(currentData.getHourValue()) + ":" + minute);
 
-        TextView year = (TextView) listItem.findViewById(R.id.DateYear);
-        year.setText("Г: " + String.valueOf(currentData.getYearValue()));
-
-        TextView hour = (TextView) listItem.findViewById(R.id.TimeHours);
-        hour.setText(String.valueOf(currentData.getHourValue()));
-
-        TextView minute = (TextView) listItem.findViewById(R.id.TimeMinutes);
-        minute.setText(String.valueOf(currentData.getMinuteValue()));
+        Button delete = (Button) listItem.findViewById(R.id.deleteButton);
 
 
         return listItem;

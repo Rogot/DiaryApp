@@ -18,7 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:textColor="@color/secColor"
+            android:background="@color/secColor"
+            android:textColor="@color/mainColor"
             android:text="@string/SYSText"
             />
 
@@ -28,75 +29,12 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/DateDay"
+                android:id="@+id/SYSValText"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="textEnd"
-                android:textColor="@color/secColor" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/SYSValText"
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_marginStart="7dp"
-        android:textColor="@color/secColor"
-        />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/DateMonth"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="5dp"
                 android:textAlignment="center"
-                android:textColor="@color/secColor" />
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/DIAText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_marginStart="7dp"
-        android:textColor="@color/secColor"
-        android:text="@string/DIAText"
-        />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/DateYear"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="textStart"
-                android:layout_marginStart="7dp"
-                android:textColor="@color/secColor" />
+                android:textColor="@color/secColor"
+                />
 
         </LinearLayout>
     </LinearLayout>
@@ -107,12 +45,14 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/DIAValText"
-            android:layout_width="35dp"
+            android:id="@+id/DIAText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/secColor"
             android:textAlignment="center"
-            android:layout_marginStart="7dp"
-            android:textColor="@color/secColor"
+            android:layout_marginHorizontal="3dp"
+            android:textColor="@color/mainColor"
+            android:text="@string/DIAText"
             />
 
         <LinearLayout
@@ -121,13 +61,12 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/TimeHours"
+                android:id="@+id/DIAValText"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="textEnd"
-                android:layout_marginStart="7dp"
-                android:textColor="@color/secColor" />
+                android:textAlignment="center"
+                android:textColor="@color/secColor"
+                />
 
         </LinearLayout>
     </LinearLayout>
@@ -141,9 +80,10 @@
             android:id="@+id/PulsePressText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@color/secColor"
             android:textAlignment="center"
             android:layout_marginStart="7dp"
-            android:textColor="@color/secColor"
+            android:textColor="@color/mainColor"
             android:text="@string/PulsePressText"
             />
 
@@ -153,24 +93,89 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/TimeMinutes"
+                android:id="@+id/PulsePressValText"
                 android:layout_width="35dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:textAlignment="textStart"
+                android:textAlignment="center"
+                android:textColor="@color/secColor"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/DateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/secColor"
+            android:textAlignment="center"
+            android:layout_marginStart="7dp"
+            android:textColor="@color/mainColor"
+            android:text="@string/DateText"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/DateValText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
+                android:textAlignment="center"
                 android:textColor="@color/secColor" />
 
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/PulsePressValText"
-        android:layout_width="35dp"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_marginStart="7dp"
-        android:textColor="@color/secColor"
-        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/TimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/secColor"
+            android:textAlignment="center"
+            android:layout_marginStart="7dp"
+            android:textColor="@color/mainColor"
+            android:text="@string/TimeText"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/TimeValText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:textAlignment="center"
+                android:textColor="@color/secColor" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="84dp"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/secColor"
+        android:text="Удалить"
+        android:textColor="@color/mainColor"
+        android:textSize="10sp" />
 
 </LinearLayout>

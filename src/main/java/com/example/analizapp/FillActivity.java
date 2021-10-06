@@ -28,7 +28,7 @@ public class FillActivity extends Activity {
     private BloodPress bloodPress;
 
     private ArrayList<BloodPress> bloodPressArray;
-    private int size = 0;
+    private int size;
     Time today = new Time(Time.getCurrentTimezone());
 
 
@@ -47,9 +47,9 @@ public class FillActivity extends Activity {
         pref = getSharedPreferences("DIARY", MODE_PRIVATE);
 
         size = pref.getInt("DataSize", 0);
-        diastolic_edit.setText(String.valueOf(pref.getInt("DisVal" + size, 0)));
-        systolic_edit.setText(String.valueOf(pref.getInt("SysVal" + size, 0)));
-        res_edit.setText(String.valueOf(pref.getInt("ResVal" + size, 0)));
+        diastolic_edit.setText(String.valueOf(0));
+        systolic_edit.setText(String.valueOf(0));
+        res_edit.setText(String.valueOf(0));
 
         today.setToNow();
     }
@@ -88,13 +88,13 @@ public class FillActivity extends Activity {
         editor.putInt("SysVal" + Integer.toString(arraySize), dataToSave.getSystolicValue());
         editor.putInt("DisVal" + Integer.toString(arraySize), dataToSave.getDiastolicValue());
         editor.putInt("ResVal" + Integer.toString(arraySize), dataToSave.getResValue());
-        arraySize = arraySize + 1;
-        editor.putInt("DataSize", arraySize);
         editor.putInt("Day" + Integer.toString(arraySize), dataToSave.getDayValue());
         editor.putInt("Month" + Integer.toString(arraySize), dataToSave.getMonthValue());
         editor.putInt("Year" + Integer.toString(arraySize), dataToSave.getYearValue());
         editor.putInt("Hour" + Integer.toString(arraySize), dataToSave.getHourValue());
         editor.putInt("Minute" + Integer.toString(arraySize), dataToSave.getMinuteValue());
+        arraySize = arraySize + 1;
+        editor.putInt("DataSize", arraySize);
         editor.apply();
     }
 

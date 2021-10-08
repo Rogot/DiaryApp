@@ -2,11 +2,18 @@ package com.example.analizapp.model;
 
 import android.text.format.Time;
 
-public class BloodPress {
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class BloodPress implements Serializable {
+
+    private static final long serialVersionUID = 1l;
 
     private int systolicValue;
     private int diastolicValue;
-    private int resValue;
+    private int pulseValue;
     private int dayValue;
     private int monthValue;
     private int yearValue;
@@ -17,19 +24,19 @@ public class BloodPress {
     public BloodPress(int systolicValue, int diastolicValue) {
         this.systolicValue = systolicValue;
         this.diastolicValue = diastolicValue;
-        this.resValue = systolicValue - diastolicValue;
+        this.pulseValue = systolicValue - diastolicValue;
     }
 
     public BloodPress(int systolicValue, int diastolicValue, int resValue) {
         this.systolicValue = systolicValue;
         this.diastolicValue = diastolicValue;
-        this.resValue = resValue;
+        this.pulseValue = resValue;
     }
 
     public BloodPress(int systolicValue, int diastolicValue, int resValue, int dayValue, int monthValue, int yearValue, int hourValue, int minuteValue) {
         this.systolicValue = systolicValue;
         this.diastolicValue = diastolicValue;
-        this.resValue = resValue;
+        this.pulseValue = resValue;
         this.dayValue = dayValue;
         this.monthValue = monthValue;
         this.yearValue = yearValue;
@@ -85,8 +92,8 @@ public class BloodPress {
         return diastolicValue;
     }
 
-    public int getResValue() {
-        return resValue;
+    public int getPulseValue() {
+        return pulseValue;
     }
 
     public void setSystolicValue(int systolicValue) {
@@ -97,7 +104,8 @@ public class BloodPress {
         this.diastolicValue = diastolicValue;
     }
 
-    public void setResValue(int resValue) {
-        this.resValue = resValue;
+    public void setPulseValue(int resValue) {
+        this.pulseValue = resValue;
     }
+
 }

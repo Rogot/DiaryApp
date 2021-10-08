@@ -47,7 +47,7 @@ public class BloodPressAdapter extends ArrayAdapter<BloodPress> {
         dia.setText(String.valueOf(currentData.getDiastolicValue()));
 
         TextView plc = (TextView) listItem.findViewById(R.id.PulsePressValText);
-        plc.setText(String.valueOf(currentData.getResValue()));
+        plc.setText(String.valueOf(currentData.getPulseValue()));
 
         TextView date = (TextView) listItem.findViewById(R.id.DateValText);
         date.setText(String.valueOf(currentData.getDayValue()) + "-" +

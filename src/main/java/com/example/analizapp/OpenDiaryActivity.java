@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.analizapp.model.BloodPress;
 import com.example.analizapp.model.BloodPressAdapter;
@@ -14,6 +15,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class OpenDiaryActivity extends Activity {
@@ -41,6 +43,24 @@ public class OpenDiaryActivity extends Activity {
         diary_list.setAdapter(mAdapter);
     }
 
+    public void deleteOnClickListener(View view)
+    {
+        try {
+            int position = diary_list.getPositionForView((View) view.getParent());
+            bloodPressArray.remove(position);
+            mAdapter.notifyDataSetChanged();
+
+            FileOutputStream fos = new FileOutputStream(FILE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(bloodPressArray);
+            oos.close();
+            fos.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    //Delete all data in the list
     public void deleteAllData(View view)
     {
         new File(FILE.toString()).delete();
@@ -50,7 +70,7 @@ public class OpenDiaryActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        setContentView(R.layout.open_diary);
+        this.recreate();
     }
 
     //Fill array for ListView using data from permanent memory

@@ -176,6 +176,8 @@
         android:background="@color/secColor"
         android:text="Удалить"
         android:textColor="@color/mainColor"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        android:onClick="deleteOnClickListener"
+        />
 
 </LinearLayout>

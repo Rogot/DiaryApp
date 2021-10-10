@@ -1,8 +1,10 @@
 package com.example.analizapp.model;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Environment;
+import android.text.style.UpdateLayout;
 import android.view.LayoutInflater;
-import android.text.format.Time;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -12,23 +14,33 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.analizapp.OpenDiaryActivity;
 import com.example.analizapp.R;
-import com.example.analizapp.model.BloodPress;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class BloodPressAdapter extends ArrayAdapter<BloodPress> {
 
+    private static final File PATH = Environment.getExternalStoragePublicDirectory(
+            Environment.DIRECTORY_DOCUMENTS);
+    private static final String fileName = "bloodPressData.ser";
+    private static final File FILE = new File(PATH, "/" + fileName);
+
     private Context mContext;
-    private List<BloodPress> bloodPressList = new ArrayList<>();
+    private ArrayList<BloodPress> bloodPressList;
 
     public BloodPressAdapter(@NonNull Context context, ArrayList<BloodPress> list) {
         super(context, 0, list);
-        mContext = context;
-        bloodPressList = list;
+        this.mContext = context;
+        this.bloodPressList = list;
     }
+
 
     @NonNull
     @Override
@@ -37,6 +49,8 @@ public class BloodPressAdapter extends ArrayAdapter<BloodPress> {
         if(listItem == null){
             listItem = LayoutInflater.from(mContext).inflate(R.layout.activity_list_blood_press,parent,false);
         }
+
+        Button deleteButton = (Button) listItem.findViewById(R.id.deleteButton);
 
         BloodPress currentData = bloodPressList.get(position);
 
@@ -59,9 +73,6 @@ public class BloodPressAdapter extends ArrayAdapter<BloodPress> {
         if (Integer.valueOf(minute) < 10)
             minute = "0" + String.valueOf(currentData.getMinuteValue());
         time.setText(String.valueOf(currentData.getHourValue()) + ":" + minute);
-
-        Button delete = (Button) listItem.findViewById(R.id.deleteButton);
-
 
         return listItem;
     }

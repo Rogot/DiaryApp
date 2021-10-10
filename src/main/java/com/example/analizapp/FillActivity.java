@@ -80,9 +80,6 @@ public class FillActivity extends Activity {
             res_edit.setText(String.valueOf(Sys - Dias));
 
             saveData(bloodPress, size);
-
-            Intent fillIntent = new Intent(FillActivity.this, MainActivity.class);
-            startActivity(fillIntent);
         }
     }
 

@@ -7,7 +7,9 @@
     <string name="logo_openDir">Дневник</string>
     <string name="logo_fillDir">Запись результатов</string>
     <string name="text_systolic">Систолическое АД</string>
+    <string name="hint_systolic">Введите систолическое давление</string>
     <string name="text_diastolic">Диастолическое АД</string>
+    <string name="hint_diastolic">Введите диастолическое давление</string>
     <string name="text_res">Пульсовое давление</string>
     <string name="button_text_write">Записать</string>
     <string name="no_user_input">Заполните все поля</string>
@@ -18,5 +20,13 @@
     <string name="PulsePressText">PLS</string>
     <string name="DateText">Дата</string>
     <string name="TimeText">Время</string>
+    <string name="FillTimeCB_1">Заполнить самостоятельно</string>
+    <string name="FillTimeCB_2">Заполнить дату и время самостоятельно</string>
+    <string name="DD">ДД</string>
+    <string name="MM">ММ</string>
+    <string name="YYYY">ГГГГ</string>
+    <string name="HH">ЧЧ</string>
+    <string name="colon"> : </string>
+    <string name="dash"> - </string>
 
 </resources>

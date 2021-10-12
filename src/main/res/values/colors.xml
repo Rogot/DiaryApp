@@ -18,6 +18,7 @@
     <color name="mainColor">#024859</color>
     <color name="secColor">#50C89F</color>
     <color name="extraColor">#54024859</color>
+    <color name="inactiveColor">#348A6D</color>
     <color name="colorPrimaryVariant">#50C89F</color>
 
 </resources>

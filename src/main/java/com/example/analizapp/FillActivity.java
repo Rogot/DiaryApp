@@ -1,11 +1,11 @@
 package com.example.analizapp;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,10 +29,20 @@ public class FillActivity extends Activity {
     private static final String fileName = "bloodPressData.ser";
     private static final File FILE = new File(PATH, "/" + fileName);
 
-    private Button writeData_button;
     private EditText diastolic_edit;
     private EditText systolic_edit;
-    private TextView res_edit;
+    private TextView pls_text;
+    private TextView date_text;
+    private TextView time_text;
+    private TextView checkBox_text_large;
+    private TextView checkBox_text_small;
+    private EditText day_edit;
+    private EditText month_edit;
+    private EditText year_edit;
+    private EditText hour_edit;
+    private EditText minute_edit;
+    private CheckBox checkBox;
+
     private BloodPress bloodPress;
 
     private ArrayList<BloodPress> bloodPressArray = new ArrayList<BloodPress>();
@@ -45,21 +55,47 @@ public class FillActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fill_diary);
 
-        writeData_button = (Button) findViewById(R.id.writeButton);
         diastolic_edit = (EditText) findViewById(R.id.diastolicEdit);
         systolic_edit = (EditText) findViewById(R.id.systolicEdit);
-        res_edit = (TextView) findViewById(R.id.resTest_2);
-        bloodPress = new BloodPress(0,0);
+        pls_text = (TextView) findViewById(R.id.plsText_2);
+        date_text = (TextView) findViewById(R.id.textDate);
+        time_text = (TextView) findViewById(R.id.textTime);
+        checkBox_text_large = (TextView) findViewById(R.id.checkboxTextLarge);
+        checkBox_text_small = (TextView) findViewById(R.id.checkboxTextSmall);
+        day_edit = (EditText) findViewById(R.id.editDay);
+        month_edit = (EditText) findViewById(R.id.editMonth);
+        year_edit = (EditText) findViewById(R.id.editYear);
+        hour_edit = (EditText) findViewById(R.id.editHour);
+        minute_edit = (EditText) findViewById(R.id.editMinute);
+        checkBox = (CheckBox) findViewById(R.id.checkbox);
 
-        diastolic_edit.setText(String.valueOf(0));
-        systolic_edit.setText(String.valueOf(0));
-        res_edit.setText(String.valueOf(0));
+        setPermissionToEnter(false);
+
+        bloodPress = new BloodPress(0,0);
 
         today.setToNow();
     }
 
+    //Checkbox handler
+    public void onClickCheckBox (View view) {
+        if (checkBox.isChecked()) {
+            date_text.setTextColor(getResources().getColor(R.color.secColor));
+            time_text.setTextColor(getResources().getColor(R.color.secColor));
+            checkBox_text_large.setTextColor(getResources().getColor(R.color.secColor));
+            checkBox_text_small.setTextColor(getResources().getColor(R.color.secColor));
+            setPermissionToEnter(true);
+        }
+        else {
+            date_text.setTextColor(getResources().getColor(R.color.inactiveColor));
+            time_text.setTextColor(getResources().getColor(R.color.inactiveColor));
+            checkBox_text_large.setTextColor(getResources().getColor(R.color.inactiveColor));
+            checkBox_text_small.setTextColor(getResources().getColor(R.color.inactiveColor));
+            setPermissionToEnter(false);
+        }
+    }
+
     //Function for button which let save data
-    public void writeData(View view) {
+    public void onClickWriteData(View view) {
         if (diastolic_edit.getText().toString().trim().equals("") || systolic_edit.getText().toString().trim().equals("")) {
             Toast.makeText(FillActivity.this, R.string.no_user_input, Toast.LENGTH_LONG).show();
         }
@@ -71,13 +107,21 @@ public class FillActivity extends Activity {
             bloodPress.setDiastolicValue(Dias);
             bloodPress.setPulseValue(Sys - Dias);
 
-            bloodPress.setDayValue(today.monthDay);
-            bloodPress.setMonthValue(today.month + 1);
-            bloodPress.setYearValue(today.year);
-            bloodPress.setHourValue(today.hour);
-            bloodPress.setMinuteValue(today.minute);
+            if (checkBox.isChecked()) {
+                bloodPress.setDayValue(Integer.parseInt(day_edit.getText().toString()));
+                bloodPress.setMonthValue(Integer.parseInt(month_edit.getText().toString()));
+                bloodPress.setYearValue(Integer.parseInt(year_edit.getText().toString()));
+                bloodPress.setHourValue(Integer.parseInt(hour_edit.getText().toString()));
+                bloodPress.setMinuteValue(Integer.parseInt(minute_edit.getText().toString()));
+            } else {
+                bloodPress.setDayValue(today.monthDay);
+                bloodPress.setMonthValue(today.month + 1);
+                bloodPress.setYearValue(today.year);
+                bloodPress.setHourValue(today.hour);
+                bloodPress.setMinuteValue(today.minute);
+            }
 
-            res_edit.setText(String.valueOf(Sys - Dias));
+            pls_text.setText(String.valueOf(Sys - Dias));
 
             saveData(bloodPress, size);
         }
@@ -104,6 +148,14 @@ public class FillActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void setPermissionToEnter(boolean permission) {
+        day_edit.setEnabled(permission);
+        month_edit.setEnabled(permission);
+        year_edit.setEnabled(permission);
+        hour_edit.setEnabled(permission);
+        minute_edit.setEnabled(permission);
     }
 
 }

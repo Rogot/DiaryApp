@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="300dp"
+    android:background="@color/mainColor">
+
+    <TextView
+        android:id="@+id/mainText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/reminderDialogText"
+        android:textColor="@color/secColor"
+        android:textSize="27sp" />
+
+    <TextView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@id/mainText"
+        android:background="@color/secColor" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectTime_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/hourText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textColor="@color/secColor"
+            android:textSize="30sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/plusHourButton" />
+
+        <Button
+            android:id="@+id/plusHourButton"
+            android:layout_width="34dp"
+            android:layout_height="31dp"
+            android:backgroundTint="@color/secColor"
+            android:textColor="@color/mainColor"
+            android:onClick="plusHourDialogListener"
+            app:layout_constraintBottom_toTopOf="@+id/hourText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <Button
+            android:id="@+id/minusHourButton"
+            android:layout_width="34dp"
+            android:layout_height="31dp"
+            android:backgroundTint="@color/secColor"
+            android:textColor="@color/mainColor"
+            app:layout_constraintTop_toBottomOf="@+id/hourText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:onClick="minusHourDialogListener"/>
+
+        <TextView
+            android:id="@+id/colonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/colon"
+            android:textColor="@color/secColor"
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/hourText"
+            app:layout_constraintLeft_toRightOf="@id/hourText" />
+
+        <TextView
+            android:id="@+id/minuteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30"
+            android:textColor="@color/secColor"
+            android:textSize="30sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/colonText"
+            app:layout_constraintLeft_toRightOf="@id/colonText" />
+
+        <Button
+            android:id="@+id/plusMinuteButton"
+            android:layout_width="34dp"
+            android:layout_height="31dp"
+            android:backgroundTint="@color/secColor"
+            android:textColor="@color/mainColor"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/minuteText"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="plusMinuteDialogListener"/>
+
+        <Button
+            android:id="@+id/minusMinuteButton"
+            android:layout_width="34dp"
+            android:layout_height="31dp"
+            android:backgroundTint="@color/secColor"
+            android:textSize="30sp"
+            app:layout_constraintTop_toBottomOf="@+id/minuteText"
+            app:layout_constraintRight_toRightOf="parent"
+            android:onClick="minusMinuteDialogListener"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectTime_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/secColor"
+        android:text="@string/ready"
+        android:textColor="@color/mainColor"
+        android:textSize="15sp"
+        android:onClick="onClickConfDialogListener"
+        />
+
+</RelativeLayout>

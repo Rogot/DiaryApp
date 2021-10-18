@@ -6,6 +6,11 @@
     <string name="button_text_settings">Настройки</string>
     <string name="logo_openDir">Дневник</string>
     <string name="logo_fillDir">Запись результатов</string>
+    <string name="logo_settings">Настройки</string>
+    <string name="checkbox_dark_view_text_large">Ночной режим</string>
+    <string name="checkbox_dark_view_text_small">Включить ночной режим</string>
+    <string name="checkbox_reminders_text_large">Напоминания</string>
+    <string name="checkbox_reminders_text_small">Включить напоминания на устройстве</string>
     <string name="text_systolic">Систолическое АД</string>
     <string name="hint_systolic">Введите систолическое давление</string>
     <string name="text_diastolic">Диастолическое АД</string>
@@ -20,13 +25,16 @@
     <string name="PulsePressText">PLS</string>
     <string name="DateText">Дата</string>
     <string name="TimeText">Время</string>
-    <string name="FillTimeCB_1">Заполнить самостоятельно</string>
-    <string name="FillTimeCB_2">Заполнить дату и время самостоятельно</string>
+    <string name="fillTimeCB_large">Заполнить самостоятельно</string>
+    <string name="fillTimeCB_small">Заполнить дату и время самостоятельно</string>
     <string name="DD">ДД</string>
     <string name="MM">ММ</string>
     <string name="YYYY">ГГГГ</string>
     <string name="HH">ЧЧ</string>
     <string name="colon"> : </string>
     <string name="dash"> - </string>
+    <string name="reminderList"> Список напоминаний </string>
+    <string name="reminderDialogText"> Выберите время для напоминания </string>
+    <string name="ready">Готово</string>
 
 </resources>

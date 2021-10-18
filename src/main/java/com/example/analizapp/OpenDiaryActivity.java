@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.analizapp.Adapters.BloodPressAdapter;
 import com.example.analizapp.model.BloodPress;
-import com.example.analizapp.model.BloodPressAdapter;
 
 import androidx.annotation.Nullable;
 

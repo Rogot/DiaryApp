@@ -26,6 +26,10 @@
             android:name=".OpenDiaryActivity"
             android:label="Diary">
         </activity>
+        <activity
+            android:name=".SettingActivity"
+            android:label="Settings">
+        </activity>
     </application>
 
 </manifest>

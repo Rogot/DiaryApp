@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(fillIntent);
     }
 
+    public void openSettings(View view) {
+        Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
+        startActivity(settingIntent);
+    }
 
     @Override
     protected void onStart() {

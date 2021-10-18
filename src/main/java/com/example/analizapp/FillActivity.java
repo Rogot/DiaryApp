@@ -14,6 +14,7 @@ import android.text.format.Time;
 import com.example.analizapp.model.BloodPress;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SwitchCompat;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,7 +42,7 @@ public class FillActivity extends Activity {
     private EditText year_edit;
     private EditText hour_edit;
     private EditText minute_edit;
-    private CheckBox checkBox;
+    private SwitchCompat switch_compat;
 
     private BloodPress bloodPress;
 
@@ -67,7 +68,7 @@ public class FillActivity extends Activity {
         year_edit = (EditText) findViewById(R.id.editYear);
         hour_edit = (EditText) findViewById(R.id.editHour);
         minute_edit = (EditText) findViewById(R.id.editMinute);
-        checkBox = (CheckBox) findViewById(R.id.checkbox);
+        switch_compat = (SwitchCompat) findViewById(R.id.switch_combat);
 
         setPermissionToEnter(false);
 
@@ -77,8 +78,8 @@ public class FillActivity extends Activity {
     }
 
     //Checkbox handler
-    public void onClickCheckBox (View view) {
-        if (checkBox.isChecked()) {
+    public void onClickSwitchCombat(View view) {
+        if (switch_compat.isChecked()) {
             date_text.setTextColor(getResources().getColor(R.color.secColor));
             time_text.setTextColor(getResources().getColor(R.color.secColor));
             checkBox_text_large.setTextColor(getResources().getColor(R.color.secColor));
@@ -95,7 +96,7 @@ public class FillActivity extends Activity {
     }
 
     //Function for button which let save data
-    public void onClickWriteData(View view) {
+    public void onClickWriteDataListener(View view) {
         if (diastolic_edit.getText().toString().trim().equals("") || systolic_edit.getText().toString().trim().equals("")) {
             Toast.makeText(FillActivity.this, R.string.no_user_input, Toast.LENGTH_LONG).show();
         }
@@ -107,7 +108,7 @@ public class FillActivity extends Activity {
             bloodPress.setDiastolicValue(Dias);
             bloodPress.setPulseValue(Sys - Dias);
 
-            if (checkBox.isChecked()) {
+            if (switch_compat.isChecked()) {
                 bloodPress.setDayValue(Integer.parseInt(day_edit.getText().toString()));
                 bloodPress.setMonthValue(Integer.parseInt(month_edit.getText().toString()));
                 bloodPress.setYearValue(Integer.parseInt(year_edit.getText().toString()));
@@ -128,6 +129,11 @@ public class FillActivity extends Activity {
     }
 
     //Data saving function in permanent memory
+    /**
+     *
+     * @param dataToSave
+     * @param arraySize
+     */
     private void saveData(BloodPress dataToSave, int arraySize)
     {
         try {
@@ -150,6 +156,10 @@ public class FillActivity extends Activity {
         }
     }
 
+    /**
+     *
+     * @param permission
+     */
     private void setPermissionToEnter(boolean permission) {
         day_edit.setEnabled(permission);
         month_edit.setEnabled(permission);

@@ -20,9 +20,9 @@
 
     <TextView
         android:id="@+id/line"
-        android:layout_below="@id/logo"
         android:layout_width="match_parent"
         android:layout_height="3dp"
+        android:layout_below="@id/logo"
         android:background="@color/secColor" />
 
     <Button
@@ -61,7 +61,8 @@
         android:backgroundTint="@color/secColor"
         android:text="@string/button_text_settings"
         android:textColor="@color/mainColor"
-        android:textSize="25sp"/>
+        android:textSize="25sp"
+        android:onClick="openSettings"/>
 
 
 

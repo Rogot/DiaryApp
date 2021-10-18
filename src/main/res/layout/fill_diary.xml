@@ -101,13 +101,12 @@
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/checkbox"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_combat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/plsText_2"
             android:layout_marginLeft="10dp"
-            android:onClick="onClickCheckBox"
+            android:onClick="onClickSwitchCombat"
             />
 
         <LinearLayout
@@ -119,7 +118,7 @@
                 android:id="@+id/checkboxTextLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FillTimeCB_1"
+                android:text="@string/fillTimeCB_large"
                 android:textColor="@color/inactiveColor"
                 android:textSize="25sp"/>
 
@@ -127,7 +126,7 @@
                 android:id="@+id/checkboxTextSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/FillTimeCB_2"
+                android:text="@string/fillTimeCB_small"
                 android:textColor="@color/inactiveColor"
                 android:textSize="17sp" />
 
@@ -264,7 +263,7 @@
         android:layout_marginHorizontal="100dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/secColor"
-        android:onClick="onClickWriteData"
+        android:onClick="onClickWriteDataListener"
         android:text="@string/button_text_write"
         android:textColor="@color/mainColor"
         android:textSize="25sp" />
